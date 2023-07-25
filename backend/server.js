@@ -9,7 +9,7 @@ const app = express()
 
 
 app.use(cors({
-  origin: 'https://www.erdemoz.io'
+  origin: 'http://www.erdemoz.io'
 }));
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))

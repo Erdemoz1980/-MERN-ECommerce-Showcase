@@ -1,4 +1,4 @@
-const API_URL = 'https://www.erdemoz.io/api/users'
+const API_URL = 'https://erdemoz-io-659240e6c6f7.herokuapp.com/api/users'
 //Register
 const register = async (userData) => {
   const response = await fetch(`${API_URL}/register`, {

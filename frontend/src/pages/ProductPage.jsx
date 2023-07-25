@@ -12,7 +12,7 @@ const ProductPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://www.erdemoz.io/api/products');
+        const response = await fetch('https://erdemoz-io-659240e6c6f7.herokuapp.com/api/products');
         const data = await response.json();
        
         //Filter products based on category keyword if it exists
