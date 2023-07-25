@@ -1,0 +1,258 @@
+[
+  {
+    "company": "Sneaker Company",
+    "name": "Fall Limited Edition Sneakers",
+    "category":"casual",
+    "gender":"unisex",
+    "description": "These low-profile sneakers are prefect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.",
+    "price": 250,
+    "countInStock":7,
+    "discount": 35, 
+    "colors":["BrightOrange"],
+    "imageThumbnails": [
+      {
+        "images":["/product-images/10001/image-product-1-thumbnail.jpg", "/product-images/10001/image-product-2-thumbnail.jpg", "/product-images/10001/image-product-3-thumbnail.jpg", "/product-images/10001/image-product-4-thumbnail.jpg"]
+      }
+    ],
+    "imagesMain": [
+      {
+      "images":["/product-images/10001/image-product-1.jpg", "/product-images/10001/image-product-2.jpg", "/product-images/10001/image-product-3.jpg", "/product-images/10001/image-product-4.jpg"]
+      }
+    ]
+  },
+  {
+    "company": "Reebok",
+    "name": "Men's Sprint Obsidian Running Shoes",
+    "category":"casual",
+    "gender":"men",
+    "description": "These low-profile sneakers are prefect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.",
+    "price": 129,
+    "countInStock":16,
+    "discount":0,
+    "colors":["Obsidian"],
+    "imageThumbnails": [
+      {
+        "images":["/product-images/10002/image-product-1.jpg", "/product-images/10002/image-product-2.jpg", "/product-images/10002/image-product-3.jpg", "/product-images/10002/image-product-4.jpg"]
+      }
+    ],
+    "imagesMain": [
+      {
+      "images":["/product-images/10002/image-product-1.jpg", "/product-images/10002/image-product-2.jpg", "/product-images/10002/image-product-3.jpg", "/product-images/10002/image-product-4.jpg"]
+    }
+  ]
+  },
+  {
+    "company": "Nike",
+    "name": "Nike Revolution 5",
+    "category":"running",
+    "gender":"unisex",
+    "description": "When the road beckons, answer the call in a lightweight pair that'll keep you moving mile after mile. Soft foam cushions your stride and a reinforced heel delivers a smooth, stable ride.",
+    "price": 88,
+    "countInStock":11,
+    "discount": 0,
+    "colors":["Navy"],
+    "imageThumbnails": [
+      {
+      "images":["/product-images/10003/image-product-1.jpg", "/product-images/10003/image-product-2.jpg", "/product-images/10003/image-product-3.jpg", "/product-images/10003/image-product-4.webp"]
+      }
+  ],
+    "imagesMain": [
+      {
+        "images":["/product-images/10003/image-product-1.jpg", "/product-images/10003/image-product-2.jpg", "/product-images/10003/image-product-3.jpg", "/product-images/10003/image-product-4.webp"]
+      }
+    ]
+  },
+  {
+    "company": "Nike",
+    "name": "Nike Zoom Fly 5",
+    "category":"running",
+    "gender":"unisex",
+    "description": "Bridge the gap between your weekend training run and race day in a durable design that can be deployed not just at the starting line of your favourite race but in the days and months after your conquest.",
+    "price": 210,
+    "countInStock":18,
+    "discount": 0,
+    "colors":["OceanBlue"],
+    "imageThumbnails": [
+      {
+        "images":["/product-images/10004/image-product-1.webp", "/product-images/10004/image-product-2.jpg", "/product-images/10004/image-product-3.webp", "/product-images/10004/image-product-4.webp"]
+      }
+    ],
+    "imagesMain":[
+      {
+      "images":["/product-images/10004/image-product-1.webp", "/product-images/10004/image-product-2.jpg", "/product-images/10004/image-product-3.webp", "/product-images/10004/image-product-4.webp"]
+    }
+  ]
+  },
+  {
+    "company": "Nike",
+    "name": "Nike Tempo",
+    "category":"running",
+    "gender":"women",
+    "description": "While these speedsters could easily pass the test on race day, they double as your go-to shoe for your training routine.",
+    "price": 260,
+    "countInStock":22,
+    "discount":10,
+    "colors":["SunsetPink"],
+    "imageThumbnails": [
+      {
+        "images": ["/product-images/10005/image-product-1.webp", "/product-images/10005/image-product-2.webp", "/product-images/10005/image-product-3.webp", "/product-images/10005/image-product-4.webp"]
+      }
+    ],
+    "imagesMain":[
+      {
+      "images":["/product-images/10005/image-product-1.webp", "/product-images/10005/image-product-2.webp", "/product-images/10005/image-product-3.webp", "/product-images/10005/image-product-4.webp"]
+     }
+    ]
+  },
+  {
+    "company": "Nike",
+    "name": "NikeCourt Air Zoom Vapor Cage 4 Rafa",
+    "category":"tennis",
+    "gender":"men",
+    "description": "The NikeCourt Air Zoom Vapor Cage 4 Rafa is innovated to withstand your toughest clay court matches—thanks to an updated design that puts flexible, durable materials exactly where they're needed the most.",
+    "price": 190,
+    "countInStock":13,
+    "discount":0,
+    "colors":["GreenAbyss","SandDrift"],
+    "imageThumbnails": [
+      {
+        "color": "Green_Abyss",
+        "images": [
+          "/product-images/10006/green_abyss/image-product-1.jpg",
+          "/product-images/10006/green_abyss/image-product-2.webp",
+          "/product-images/10006/green_abyss/image-product-3.webp",
+          "/product-images/10006/green_abyss/image-product-4.jpg"
+        ]
+      },
+      {
+        "color": "Sand_Drift",
+        "images": [
+          "/product-images/10006/sand_drift/image-product-1.webp",
+          "/product-images/10006/sand_drift/image-product-2.webp",
+          "/product-images/10006/sand_drift/image-product-3.webp",
+          "/product-images/10006/sand_drift/image-product-4.jpg"
+        ]
+      }
+    ],
+    "imagesMain": [
+      {
+        "color": "Green_Abyss",
+        "images": [
+          "/product-images/10006/green_abyss/image-product-1.jpg",
+          "/product-images/10006/green_abyss/image-product-2.webp",
+          "/product-images/10006/green_abyss/image-product-3.webp",
+          "/product-images/10006/green_abyss/image-product-4.jpg"
+        ]
+      },
+      {
+        "color": "Sand_Drift",
+        "images": [
+          "/product-images/10006/sand_drift/image-product-1.webp",
+          "/product-images/10006/sand_drift/image-product-2.webp",
+          "/product-images/10006/sand_drift/image-product-3.webp",
+          "/product-images/10006/sand_drift/image-product-4.jpg"
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Nike",
+    "name": "NikeCourt Air Zoom Vapor 11",
+    "category":"tennis",
+    "gender":"men",
+    "description": "Validated by the greats of the game, the Vapor 11 is back. Lower to the court and loaded with speed components, it helps you play at a fast pace with enough support to keep you bobbing and weaving for sets on end.",
+    "price": 210,
+    "countInStock":7,
+    "discount":0,
+    "colors":["Azure"],
+    "imageThumbnails": [
+      {
+      "images":["/product-images/10007/image-product-1.webp", "/product-images/10007/image-product-2.webp", "/product-images/10007/image-product-3.webp", "/product-images/10007/image-product-4.jpg"]
+      }
+   ],
+    "imagesMain":[
+    {
+      "images":["/product-images/10007/image-product-1.webp", "/product-images/10007/image-product-2.webp", "/product-images/10007/image-product-3.webp", "/product-images/10007/image-product-4.jpg"]
+    }
+  ]
+  },
+  {
+    "company": "Nike",
+    "name": "NikeCourt Air Zoom Vapor AJ3",
+    "category":"tennis",
+    "gender":"men",
+    "description": "Bring MJ's swagger with you from the hardwood to the hard court. Inspired by MJ's 2nd slam dunk competition win and subsequent Jumpman logo that was borne from the title, the Nike Vapor AJ3 brings 1 of the sneaker world's most notable sneakers to the tennis sphere.",
+    "price": 235,
+    "countInStock":14,
+    "discount":15,
+    "colors":["SkyGrey"],
+    "imageThumbnails":[
+      {
+        "images":[ "/product-images/10008/image-product-1.webp", 
+      "/product-images/10008/image-product-2.webp", 
+      "/product-images/10008/image-product-3.webp", 
+      "/product-images/10008/image-product-4.webp"]
+      }
+    ],
+    "imagesMain":[
+      {
+        "images":["/product-images/10008/image-product-1.webp", 
+      "/product-images/10008/image-product-2.webp", 
+      "/product-images/10008/image-product-3.webp", 
+      "/product-images/10008/image-product-4.webp"]
+      }
+   ]
+  },
+  {
+    "company": "Nike",
+    "name": "NikeCourt Air Zoom Vapor Pro 2",
+    "category":"tennis",
+    "gender":"women",
+    "description": "For the rally that won't relent or the marathon match that must end in your favour, go with the Vapor Pro 2. We brought back all the elements you enjoyed in the original Pro",
+    "price": 160,
+    "countInStock":6,
+    "discount":0,
+    "colors":["PinkBloom","TealNebula"],
+    "imageThumbnails":[
+      {  
+        "color":"Pink Bloom",
+        "images":[
+          "/product-images/10009/pink_bloom/image-product-1.webp", 
+          "/product-images/10009/pink_bloom/image-product-2.webp", 
+          "/product-images/10009/pink_bloom/image-product-3.webp", 
+          "/product-images/10009/pink_bloom/image-product-4.jpg"]
+      },
+      {  
+        "color":"Teal Nebula",
+        "images":[
+          "/product-images/10009/teal_nebula/image-product-1.webp", 
+          "/product-images/10009/teal_nebula/image-product-2.webp", 
+          "/product-images/10009/teal_nebula/image-product-3.webp", 
+          "/product-images/10009/teal_nebula/image-product-4.webp"]
+      }
+    ],
+    "imagesMain":[
+      { 
+        "color":"Pink Bloom", 
+        "images":[
+          "/product-images/10009/pink_bloom/image-product-1.webp", 
+          "/product-images/10009/pink_bloom/image-product-2.webp", 
+          "/product-images/10009/pink_bloom/image-product-3.webp", 
+          "/product-images/10009/pink_bloom/image-product-4.jpg"]
+      },
+      { 
+        "color":"Teal Nebula",
+        "images":[
+          "/product-images/10009/teal_nebula/image-product-1.webp", 
+          "/product-images/10009/teal_nebula/image-product-2.webp", 
+          "/product-images/10009/teal_nebula/image-product-3.webp", 
+          "/product-images/10009/teal_nebula/image-product-4.webp"]
+      }
+    ]
+  }
+]
+
+
+
+
+

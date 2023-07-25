@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "create-react-app": "^5.0.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^7.3.1"
+  },
+  "name": "ecommerce-product-page",
+  "description": "![Design preview for the E-commerce product page coding challenge](./design/desktop-preview.jpg)",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "productSeeder": "node backend/seederProducts.js"
+  },
+  "author": "Erdem Oz",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
