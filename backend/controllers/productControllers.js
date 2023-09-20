@@ -1,12 +1,29 @@
 const asyncHandler = require('express-async-handler');
-const Product = require('../models/productModel')
+const { ProductModel } = require('../models/models.js')
 
 //@desc Fetches all products
 //@route GET api/products
 //@access Public
 const getProducts = asyncHandler(async (req, res, next) => {
+  const searchTerm = req.query.searchterm;
   try {
-    const products = await Product.find({});
+    let query = {}
+
+    if (searchTerm) {
+      const searchTermsArray = searchTerm.split(' ').filter(term => term.length > 0);// Remove multiple spaces if they exist.
+      const searchTermRegexArray = searchTermsArray.map(term => new RegExp(term, 'i'))
+        ;
+      query = {
+        $or: [
+          { company:{$in: searchTermRegexArray} }, //$in operator to match any terms in the provided field.
+          { name: {$in: searchTermRegexArray}},
+          { category:{$in: searchTermRegexArray} },
+          { gender: {$in: searchTermRegexArray} },
+          { description: { $in: searchTermRegexArray } },
+        ]
+      }
+    }
+    const products = await ProductModel.find(query);
 
     if (products) {
       res.status(200).json(products)
@@ -23,7 +40,7 @@ const getProducts = asyncHandler(async (req, res, next) => {
 //@access Public
 const getProduct = asyncHandler(async (req, res, next) => {
   try {
-    const product = await Product.findById(req.params.id)
+    const product = await ProductModel.findById(req.params.id)
     if (product) {
       res.status(200).json(product)
     } else {

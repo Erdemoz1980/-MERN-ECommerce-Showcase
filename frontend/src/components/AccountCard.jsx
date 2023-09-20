@@ -9,10 +9,8 @@ const AccountCard = ({ title, desc, to }) => {
   return (
     <Link to={to} onClick={()=>dispatch(setPathName(location.pathname))}>
     <div className='account-card-wrapper'>
-      
       <h3>{title}</h3>
       <p>{desc}</p>
-     
       </div>
       </Link>
   )

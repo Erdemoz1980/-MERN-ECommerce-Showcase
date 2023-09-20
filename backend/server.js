@@ -16,6 +16,7 @@ connectDB()
 
 app.use('/api/products', require('./routes/productRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
+app.use('/api/orders', require('./routes/orderRoutes'))
 app.use('/api/send-email', require('./routes/mailRoutes'))
 app.use(errorHandler)
 

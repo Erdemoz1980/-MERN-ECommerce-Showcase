@@ -1,4 +1,4 @@
-const User = require('../models/userModel');
+const { UserModel } = require('../models/models');
 const asyncHandler = require('express-async-handler');
 
 //@desc  Registers a new user
@@ -10,12 +10,12 @@ const registerUser = asyncHandler(async (req, res) => {
   lastName = lastName[0].toUpperCase() + lastName.substring(1, lastName.length)
   email = email.toLowerCase()
 
-  const userExists = await User.findOne({ email });
+  const userExists = await UserModel.findOne({ email });
   if (userExists) {
     return res.status(400).json({ message: 'Another account is already registered with your email!' })
   }
 
-  const user = await User.create({
+  const user = await UserModel.create({
     name, lastName, email, password, address
   });
   
@@ -41,7 +41,7 @@ const loginUser = asyncHandler(async (req, res) => {
   let { email, password } = req.body;
   email = req.body.email.toLowerCase()
 
-  const user = await User.findOne({ email });
+  const user = await UserModel.findOne({ email });
   if (!user || (user.password !== password)) {
     res.status(401)
     throw new Error('Invalid email or password!')
@@ -63,7 +63,7 @@ const updateUser = asyncHandler(async (req, res, next) => {
   }
  
 
-    const updatedUser = await User.findByIdAndUpdate(userId, formattedUserData, { new: true });
+    const updatedUser = await UserModel.findByIdAndUpdate(userId, formattedUserData, { new: true });
     if (updatedUser) {
       res.status(200).json(updatedUser);
     } else {
@@ -79,7 +79,7 @@ const updatePassword = asyncHandler(async (req, res) => {
   const userId = req.params.id
   const { oldPassword, newPassword } = req.body;
 
-  const user = await User.findById(userId);
+  const user = await UserModel.findById(userId);
   if (!user || user.password !== oldPassword) {
     res.status(401)
     throw new Error('Incorrect password! Plase try again')
@@ -88,7 +88,7 @@ const updatePassword = asyncHandler(async (req, res) => {
       res.status(400)
       throw new Error('Your new password should not match the old one')
     }
-    const updatedUser = await User.findByIdAndUpdate(userId, {password:newPassword}, { new: true });
+    const updatedUser = await UserModel.findByIdAndUpdate(userId, {password:newPassword}, { new: true });
     if (updatedUser) {
       return res.status(200).json(updatedUser)
     } else {

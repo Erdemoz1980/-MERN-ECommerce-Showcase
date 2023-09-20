@@ -1,4 +1,4 @@
-const Product = require('./models/productModel');
+const { ProductModel } = require('./models/models');
 const productsData = require('./productsData');
 const connectDB = require('./config/db');
 const dotenv = require('dotenv')
@@ -9,10 +9,10 @@ connectDB();
 
 const seedDatabase = async () => {
   try {
-    await Product.deleteMany()
+    await ProductModel.deleteMany()
 
     for (const document of productsData) {
-      const newDocument = new Product(document)
+      const newDocument = new ProductModel(document)
       await newDocument.save()
 
       console.log('Product seeded succesfully!')
