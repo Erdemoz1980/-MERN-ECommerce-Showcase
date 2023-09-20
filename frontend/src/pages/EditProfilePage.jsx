@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Alert from '../components/Alert';
 import { updateUser, reset } from '../slices/userSlice';
 import { Link } from 'react-router-dom';
 
 const EditPropfilePage = () => {
-  const { userInfo, errMessage, success } = useSelector(state => state.user);
+  const { userInfo, provinces, pathName, errMessage, success } = useSelector(state => state.user);
   const [userData, setUserData] = useState({
     _id:'',
     name:'',
@@ -32,10 +32,9 @@ const EditPropfilePage = () => {
 
   const { name, lastName, address: { streetNo, streetName, postalCode, province, country } } = userData;
 
-  const provinces = ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'ON', 'PE', 'QC', 'SK'];
-
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const location  = useLocation()
 
   const formSubmittedRef = useRef(false);
 
@@ -44,7 +43,7 @@ const EditPropfilePage = () => {
       navigate('/')
     }
     setProfileAlert(success ? 'You have successfully updated your profile!' : errMessage)
-    
+
     if (userInfo) {
       setUserData({
         _id: userInfo._id,
@@ -67,8 +66,7 @@ const EditPropfilePage = () => {
         dispatch(reset());
       }
     }
-
-    }, [navigate, userInfo, dispatch, errMessage, success])
+    }, [navigate, userInfo, dispatch, errMessage, success, location.pathname])
 
 
   const onChangeHandler = (e) => {
@@ -137,7 +135,7 @@ const EditPropfilePage = () => {
 
   return (
     <div className='container form-wrapper'>
-      <Link to={`/user/account/${userInfo._id}`}><button className='btn btn-navigate btn-navigate-profile'>Go Back</button></Link>
+      <Link to={pathName}><button className='btn btn-navigate btn-navigate-profile'>Go Back</button></Link>
       {profileAlert && <Alert message={profileAlert} type={success ? 'success' :'error'} />}
       <h1>Edit Profile</h1>
       <form onSubmit={submitHandler} className='login-register-form'>

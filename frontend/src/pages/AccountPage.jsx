@@ -18,7 +18,8 @@ const AccountPage = () => {
     {
       id: 10001,
       title: 'Your Orders',
-      desc:'View your order details, track, return or cancel an order'
+      desc: 'View your order details, track, return or cancel an order',
+      to:'/user/account/orderhistory'
     },
     {
       id: 10002,

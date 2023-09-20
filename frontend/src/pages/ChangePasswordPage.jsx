@@ -77,7 +77,7 @@ const ChangePasswordPage = () => {
     <div className='container form-wrapper'>
       <Link to={`/user/account/${userInfo._id}`}><button className='btn btn-navigate btn-navigate-profile'>Go Back</button></Link>
       {passwordAlert  && <Alert message={passwordAlert} type={success ? 'success' :'error'} />}
-      <h1>Enter New Password</h1>
+      <h1>Change Password</h1>
       <form onSubmit={submitHandler} className='login-register-form'>
         <div className="form-group">
           <label htmlFor="oldPassword">Enter Old Password</label>

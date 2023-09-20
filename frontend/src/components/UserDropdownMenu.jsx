@@ -20,7 +20,7 @@ const UserDropdownMenu = ({ userInfo, setShowUserMenu, setBorder }) => {
       <ul className='user-dropdown-menu'>
         <li onClick={() => dispatch(logout())}>Logout</li>
         <li><Link to={`/user/account/${userInfo._id}`}>Your Account</Link></li>
-        <li><Link to='/userOrders'>Your Orders</Link></li>
+        <li><Link to='/user/account/orderhistory'>Your Orders</Link></li>
         <li><Link to='/user/profile/:id'>Your Recommendations</Link></li>
       </ul>
     </div>

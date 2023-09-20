@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@200;300;400;500;700&display=swap');
 
 :root{
   /*Colors*/
   --clrFuchsia:#552655;
-  --clrOrange:#FF7E1B;
+  --clrOrange:#ff7e1b;
+  --clrWarning:#ff797936;
   --clrGreen:#18977cda;
   --clrDarkGreen:#339c79;
   --clrLightOrange:#FFEEE2;
@@ -18,9 +19,11 @@
   --ffMain:'Kumbh Sans', sans-serif;  
   --widthMain:1110px;
   --widthMedium:960px;
+  --widthMobile:640px;
 
   /*Transitions*/
   --trsMain:0.15s ease-out;
+  --trsHover:0.085s ease;
 }
 
 /*Make images easier to work with*/
@@ -39,10 +42,15 @@ ul{
 
 a{
   text-decoration: none;
+  color:var(--clrDarkBlue);
 }
 
 a:visited{
   color:#000
+}
+
+small{
+  display: block;
 }
 
 .container{
@@ -60,6 +68,10 @@ a:visited{
   background: rgba(255,255,255, 0.6);
   border: 2px solid var(--clrOrange);
   border-radius: 10px;
+}
+
+.visible{
+  visibility: visible;
 }
 
 /*Input elements*/
@@ -87,10 +99,11 @@ input, textarea, select{
 }
 
 .btn-submit{
-padding: 14px 68px;
+padding: 14px 50px;
 font-size: 14px;
 line-height: 14px;
 background: var(--clrDarkBlue);
+border-radius: 5px;
 }
 
 .btn-navigate{
@@ -99,6 +112,7 @@ background: var(--clrDarkBlue);
   line-height: 12px;
   border-radius: 5px;
   background: var(--clrBlueGrey);
+  width: 80px;
 }
 
 .btn-medium{
@@ -113,12 +127,12 @@ background: var(--clrDarkBlue);
   background: #8b8f97;
 }
 
-.btn-primary:disabled{
-  background: var(--clrLightGrey);
-}
-
 .btn:disabled{
   cursor:default;
+}
+
+.btn-primary:disabled {
+  background:var(--clrLightGrey)
 }
 
 .btn-block{
@@ -130,13 +144,12 @@ h1{
   font-size: 30px;
 }
 
-h1, h2, h3, h4, h5{
+h1, h2, h3, h4, h5, p{
   font-weight: 500;
   color:var(--clrVeryDarkBlue)
 }
 
 .text-dark{
-  color:var(--clrVeryDarkBlue);
   font-weight: 700;
 }
 
@@ -166,3 +179,13 @@ h1, h2, h3, h4, h5{
 }
 
 /*Shapes*/
+.loader{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:conic-gradient(#0000 10%,#766DF4);
+    mask:radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+    animation:s3 1s infinite linear;
+
+  @keyframes s3 {to{transform: rotate(1turn)}}
+}

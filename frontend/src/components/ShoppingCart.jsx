@@ -1,14 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { closeCart, deleteCartItem, setCartItems} from '../slices/cartSlice';
-import useQtyChange from '../hooks/useQtyChange';
 import trashIcon from '../images/icon-delete.svg';
 
 const ShoppingCart = () => {
   const { cartItems } = useSelector(state => state.cart);
   const dispatch = useDispatch();
-
-  const handleQtyChange = useQtyChange(cartItems) 
 
   return (
     <div className='cart-wrapper'>
@@ -21,15 +18,18 @@ const ShoppingCart = () => {
       ) : (
         <>
           {cartItems.map(item => (
-              <div key={`${item._id}${item.colorVersion}`} className="cart-item-details-wrapper">
+              <div key={`${item._id}${item.colorVersion}${item.size}`} className="cart-item-details-wrapper">
                 <div className="cart-item-image-wrapper">
                   <img src={item.img} alt='cart item' />
                 </div>
                 <div className="cart-item-info">
-                  <p className="cart-item-name">{item.name}</p>
-                  <p className="cart-item-price">${item.discount ?
-                    ((item.price - (item.price * (item.discount / 100))).toFixed(2)) : item.price} x {item.qty} = <span>${item.discount ?
-                    ((item.price - (item.price * (item.discount / 100))) * item.qty).toFixed(2) : (item.price * item.qty).toFixed(2)}</span></p>
+                <p className="cart-item-name">{item.name}</p>
+                <div className="cart-color-size-wrapper">
+                  <p className='cart-item-color'>{item.colorVersion}</p>
+                <p className='cart-item-size'>Size US: {item.size}</p>
+                </div>
+                  <p className="cart-item-price">
+                    ${(item.price.toFixed(2))} x {item.qty} = <span>${(item.price * item.qty).toFixed(2)}</span></p>
                   <div className="stock-info-wrapper">
                     <p>Change</p>
                     <select name="" id="" value={item.qty} onChange={(e) => dispatch(setCartItems({...item, qty:Number(e.target.value)}))} >
@@ -40,7 +40,7 @@ const ShoppingCart = () => {
                   </div>
                 </div>
               <div className="cart-trash-container">
-                <button className="btn" onClick={() => dispatch(deleteCartItem({ _id:item._id, colorVersion:item.colorVersion }))}>
+                <button className="btn" onClick={() => dispatch(deleteCartItem({ _id:item._id, colorVersion:item.colorVersion, size:item.size }))}>
                 <div className="cart-delete-img-container">
                 <img src={trashIcon} alt='trash' />
                 </div>  

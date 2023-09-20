@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { register } from '../slices/userSlice';
+import { register, reset } from '../slices/userSlice';
 import Alert from '../components/Alert';
 
 const RegisterPage = () => {
@@ -23,18 +23,25 @@ const RegisterPage = () => {
   const [alertRegister, setAlertRegister] = useState(false);
 
   const { name, lastName, email, password, passwordConfirm, address:{streetNo, streetName, postalCode, province, country} } = userData
-  const provinces = ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'ON', 'PE', 'QC', 'SK'];
+  
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const { userInfo, errMessage } = useSelector(state => state.user)
+  const { userInfo, provinces, errMessage } = useSelector(state => state.user)
 
+  const formSubmittedRef = useRef(false)
   useEffect(() => {
     if (userInfo) {
       navigate('/')
     }
-  },[userInfo, navigate])
+
+    return () => {
+      if (!formSubmittedRef.current) {
+        dispatch(reset())
+      }
+    }
+  },[userInfo, navigate, dispatch])
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target
@@ -73,7 +80,7 @@ const RegisterPage = () => {
 
   return (
     <div className='container form-wrapper'>
-      {(alertRegister || errMessage) && <Alert message={alertRegister ? alertRegister : errMessage} />}
+      {(alertRegister || errMessage) && <Alert message={alertRegister ? alertRegister : errMessage} type='error' />}
       <h1>Sign Up</h1>
       <form onSubmit={submitHandler} className='login-register-form'>
         <div className="form-group">
@@ -96,8 +103,8 @@ const RegisterPage = () => {
           <label htmlFor="confirmPassword">Confirm Password</label>
           <input type="password" name="passwordConfirm" id="confirmPassword" value={passwordConfirm} onChange={onChangeHandler} required />
         </div>
-        <div className="form-group-address">
-           
+
+        <div className="form-group-address">   
           <h4>Address</h4>
 
           <div className="form-group">

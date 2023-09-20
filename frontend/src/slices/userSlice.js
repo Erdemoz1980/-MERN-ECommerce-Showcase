@@ -6,6 +6,8 @@ const userInfo = JSON.parse(localStorage.getItem('user'))
 
 const initialState = {
   userInfo: userInfo ? userInfo : null,
+  provinces: ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'ON', 'PE', 'QC', 'SK'],
+  pathName:'/',
   isLoading: false,
   success:false,
   errMessage:null,
@@ -72,6 +74,9 @@ export const userSlice = createSlice({
       state.userInfo = null
       state.errMessage = null
       localStorage.removeItem('user')
+    },
+    setPathName: (state, action) => {
+      state.pathName = action.payload
     }
   },
   extraReducers: (builder) => {
@@ -136,5 +141,5 @@ export const userSlice = createSlice({
   }
 })
 
-export const { logout, reset } = userSlice.actions;
+export const { logout, reset, setPathName } = userSlice.actions;
 export default userSlice.reducer;

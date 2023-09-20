@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
-import { login } from '../slices/userSlice';
+import { login, reset } from '../slices/userSlice';
 import Alert from '../components/Alert';
 import EyeClosedIcon from '../components/EyeClosedIcon';
 import EyeOpenIcon from '../components/EyeOpenIcon';
@@ -24,13 +24,21 @@ const LoginPage = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const { userInfo, errMessage} = useSelector(state => state.user);
+  const { userInfo, success, errMessage } = useSelector(state => state.user);
+  
+  const formSubmittedRef = useRef(false);
 
   useEffect(() => {
     if (userInfo) {
       navigate('/')
     }
-  },[navigate, userInfo])
+    
+    return () => {
+      if (!formSubmittedRef.current) {
+        dispatch(reset());
+      }
+    }
+  },[navigate, userInfo, dispatch])
 
   const onChangeHandler = (e) => {
     setFormData(prevState => ({
@@ -78,4 +86,4 @@ const LoginPage = () => {
   )
 }
 
-export default LoginPage
+export default LoginPage;
