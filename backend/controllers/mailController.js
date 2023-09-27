@@ -21,10 +21,8 @@ const sendMail = asyncHandler ( async (req, res) => {
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.error(error)
       res.status(500).json({success:false, message:'Failed to send email'})
     } else {
-      console.log('Email Sent:' + info + response);
       res.status(200).json({success:true, message:'Email sent successfully!'})
     }
   })

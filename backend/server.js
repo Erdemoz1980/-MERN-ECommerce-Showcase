@@ -7,6 +7,18 @@ const port = process.env.PORT || 3000
 
 const app = express()
 
+// Configure CORS to allow requests from your frontend (localhost during development)
+const allowedOrigins = ['http://localhost:3000', 'https://erdemoz-io-659240e6c6f7.herokuapp.com']; // Add your frontend domain when in production
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
+
 
 app.use(cors());
 app.use(express.json())
