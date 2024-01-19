@@ -28,11 +28,16 @@ This project is a full-stack E-Commerce application developed using the MERN (Mo
   - Express
   - MongoDB with Mongoose for database management
 
+## Live Demo
+
+Check out the live demo: [MERN E-Commerce Showcase](https://ecommerce.erdemoz.io/)
+
 ## Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Erdemoz1980/-MERN-ECommerce-Showcase
+   git clone https://github.com/your-username/MERN-ECommerce-Showcase.git
+
 
 ## Additional Notes
 This project was originally a 'Product Page' design from Frontend Mentor, but it has organically evolved into a full-stack E-Commerce application.
