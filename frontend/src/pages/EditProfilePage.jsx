@@ -134,7 +134,7 @@ const EditPropfilePage = () => {
 };
 
   return (
-    <div className='container form-wrapper'>
+    <div className='container profile-wrapper form-wrapper'>
       <Link to={pathName}><button className='btn btn-navigate btn-navigate-profile'>Go Back</button></Link>
       {profileAlert && <Alert message={profileAlert} type={success ? 'success' :'error'} />}
       <h1>Edit Profile</h1>
@@ -172,7 +172,7 @@ const EditPropfilePage = () => {
           <label htmlFor="country">Country</label>
           <input type="text" name="country" id="country" value={country} readOnly />
         </div>
-        <button className="btn btn-primary">Update</button>
+        <button className="btn btn-primary btn-profile">Update</button>
       </form>
     </div>
   )

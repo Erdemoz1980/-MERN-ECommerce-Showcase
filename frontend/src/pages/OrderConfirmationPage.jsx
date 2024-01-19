@@ -31,11 +31,11 @@ const OrderConfirmationPage = () => {
   }, [navigate, order, dispatch, userInfo])
     
   return (
-    <main className='container'>
+    <main>
       <Breadcrumbs  orderConfirmation={true} /> 
-      <section className='order-confirmation-page-wrapper'>
-      <header className='order-confirmation-header'>Thank you for your order!</header>
-      <main className="order-confirmation-wrapper">
+      <section className='container order-confirmation-page-wrapper'>
+      <header className='container order-confirmation-header'>Thank you for your order!</header>
+      <main className="order-confirmation-wrapper container">
         <section className="order-confirmation-details-wrapper">
           <h3>Details</h3>
         <div className="confirmation-details-box">

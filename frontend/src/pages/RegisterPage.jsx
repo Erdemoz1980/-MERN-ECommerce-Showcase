@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { register, reset } from '../slices/userSlice';
 import Alert from '../components/Alert';
+import EyeClosedIcon from '../components/EyeClosedIcon';
+import EyeOpenIcon from '../components/EyeOpenIcon';
 
 const RegisterPage = () => {
   const [userData, setUserData] = useState({
@@ -20,6 +22,10 @@ const RegisterPage = () => {
       country: 'Canada'
     }
   });
+  const [showPassword, setShowPassword] = useState({
+    password: false,
+    passwordConfirm:false
+  })
   const [alertRegister, setAlertRegister] = useState(false);
 
   const { name, lastName, email, password, passwordConfirm, address:{streetNo, streetName, postalCode, province, country} } = userData
@@ -79,7 +85,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className='container form-wrapper'>
+    <div className='container form-wrapper register-form'>
       {(alertRegister || errMessage) && <Alert message={alertRegister ? alertRegister : errMessage} type='error' />}
       <h1>Sign Up</h1>
       <form onSubmit={submitHandler} className='login-register-form'>
@@ -97,11 +103,13 @@ const RegisterPage = () => {
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" value={password} onChange={onChangeHandler} required />
+          <input type={showPassword.password ? 'text' : 'password'} name="password" id="password" value={password} onChange={onChangeHandler} required />
+          {showPassword.password ? <div onClick={()=>setShowPassword(prevState=>({...prevState, password:false}))} ><EyeOpenIcon /></div> : <div onClick={()=>setShowPassword(prevState=>({...prevState,password:true}))}><EyeClosedIcon /></div>}
         </div>
         <div className="form-group">
           <label htmlFor="confirmPassword">Confirm Password</label>
-          <input type="password" name="passwordConfirm" id="confirmPassword" value={passwordConfirm} onChange={onChangeHandler} required />
+          <input type={showPassword.passwordConfirm ? 'text' : 'password'}name="passwordConfirm" id="confirmPassword" value={passwordConfirm} onChange={onChangeHandler} required />
+          {showPassword.passwordConfirm ? <div onClick={()=>setShowPassword(prevState=>({...prevState, passwordConfirm:false}))} ><EyeOpenIcon /></div> : <div onClick={()=>setShowPassword(prevState=>({...prevState, passwordConfirm: true}))} ><EyeClosedIcon /></div>}
         </div>
 
         <div className="form-group-address">   

@@ -15,7 +15,7 @@ const ProductCard = ({ _id, company, name, category, gender, price, colors, imag
           <img src={colors.length > 1 ? (imagesMain?.[localColorVersion]?.images[0]) : (imagesMain?.[0].images[0])} alt="card hero" />
         </Link>
       </div>
-      <div className="product-card-body">
+      <div className="container product-card-body">
         <Link to={`/?=${company}`}><h4 className='company-name'>{company}</h4></Link>
         <h1 className='product-name text-dark text-medium'>{name}</h1>
         <div className="card-categories">

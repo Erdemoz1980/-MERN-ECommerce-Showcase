@@ -57,7 +57,7 @@ const productSlice = createSlice({
         state.products = []
         state.errMessage = action.payload
       })
-      .addCase(getProductDetail.pending, (state, action) => {
+      .addCase(getProductDetail.pending, (state) => {
         state.isLoading = true
         state.errMessage = false
       })

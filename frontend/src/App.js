@@ -14,6 +14,7 @@ import { PayPalScriptProvider} from '@paypal/react-paypal-js';
 import OrderHistoryPage from './pages/OrderHistoryPage';
 import ConditionalSearchBar from './pages/ConditionalSearchBar';
 
+
 const App = () => {
 
   return (

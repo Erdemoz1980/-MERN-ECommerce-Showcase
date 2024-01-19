@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { getOrderList, orderListReset } from '../slices/orderSlice';
 import OrderHistoryCard from '../components/OrderHistoryCard';
 import Loader from '../components/Loader';
@@ -11,7 +11,7 @@ const OrderHistoryPage = () => {
     direction: 'desc',
   });
   const { option, direction} = sortingData;
-  const { userInfo } = useSelector(state => state.user);
+  const { userInfo, pathName } = useSelector(state => state.user);
   const { isLoading, isSuccess, orderList } = useSelector(state => state.orderInfo);
   const [sortedOrderList, setSortedOrderList] = useState(orderList);
 
@@ -34,7 +34,6 @@ const OrderHistoryPage = () => {
     const sortOptions = {
       Date: (a, b) => a.createdAt.localeCompare(b.createdAt),
       Total: (a, b) => a.totalPrice - b.totalPrice,
-      NumberOfItems: (a, b) => a.orderItems.length - b.orderItems.length,
       sortDirections: {
         asc: (a, b) => sortOptions[option](a, b),
         desc: (a, b) => sortOptions[option](b, a)
@@ -59,10 +58,11 @@ const OrderHistoryPage = () => {
   };
 
   //Separating rendering logic from data.
-  const radioButtons = [{ id:1000 , name:'radio.option', value: 'Date' }, {id:1001, name:'radio.option',  value: 'Total' }, { id:1002, name:'radio.option',  value: 'NumberOfItems' }]
+  const radioButtons = [{ id:1000 , name:'radio.option', value: 'Date' }, {id:1001, name:'radio.option',  value: 'Total' }]
 
   return (
     <div className="container order-history-page-wrapper">
+      <Link to={pathName}><button className='btn btn-navigate'>Go Back</button></Link>
       <h1>Order History</h1>
       <section className="sort-container">
         <p>Sort Orders</p>
@@ -70,9 +70,10 @@ const OrderHistoryPage = () => {
           {
             radioButtons.map(item => (
               <div key={item.id}  className="filter-options-form-group">
-                <label htmlFor={item.value}>{item.value}</label>
+                <label htmlFor={item.value} className={`${item.value === sortingData.option ? 'selected' : ''}`}>{item.value}</label>
                 <input checked={item.value === option} type="radio" name={item.name} id={item.value} value={item.value}
                   onChange={onChangeHandler} />
+                
               </div>
             ))
           }

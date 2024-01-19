@@ -193,9 +193,7 @@ const PaymentPage = () => {
     }
   }
 
-  const placeOrderHandler = (e) => {
-    e.preventDefault()
-   
+  const placeOrderHandler = (e) => {   
     if (selectedPaymentMethod === 'credit-card' && creditCardValidated) {
       if (creditCardData.cardNumber.length < 19) {
         setCardAlert(prevState => ({
@@ -249,16 +247,14 @@ const PaymentPage = () => {
     }
   }
 
- 
     return (
       <main className='container'>
         <Breadcrumbs productDetails={true} checkout={true} payment={true} /> 
-        <section className='payment-page-wrapper'>
-        
+        <section className='container payment-page-wrapper'>
         <Link to='/user/checkout'><button className="btn btn-navigate">Go Back</button></Link>
     
         <div className="shipping-billing-wrapper">
-          <form className="payment-form-wrapper" onSubmit={placeOrderHandler}>
+          <form className="payment-form-wrapper">
             <div className="shipping-summary-wrapper">
               <div className="summary-row">
                 <h4 className="header">Contact:</h4>
@@ -400,11 +396,6 @@ const PaymentPage = () => {
                 </div>
               </section>
             </div>
-       
-            <footer>
-              <button className='btn btn-submit'>Place Order</button>
-            </footer>
-       
           </form>
        
           <section className='order-summary-wrapper'>
@@ -448,9 +439,10 @@ const PaymentPage = () => {
               <h4>Total</h4>
               <h3 className='total-bill'><span>CAD</span>${totalPrice.toFixed(2)}</h3>
             </div>
-          </section>
+            </section>
           </div>
-          </section>
+        </section>
+              <button className='btn btn-submit place-order-btn' onClick={placeOrderHandler}>Place Order</button>
       </main>
     )
 };

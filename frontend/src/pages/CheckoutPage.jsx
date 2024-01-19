@@ -24,7 +24,7 @@ const CheckoutPage = () => {
       <h1>Place Order</h1>
       <h2>My Cart</h2>
       <table>
-        <thead>
+        <thead >
           <tr className='checkout-header'>
             <th>Item</th>
             <th>Price</th>
@@ -32,7 +32,7 @@ const CheckoutPage = () => {
             <th>Amount</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className='checkout-body'>
           {cartItems.length < 1 ? (
             <tr>
               <th>Your cart is empty</th>

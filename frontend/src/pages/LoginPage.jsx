@@ -58,7 +58,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className='container form-wrapper'>
+    <div className='container form-wrapper login-form'>
       {(loginAlert || errMessage)  && <Alert message={loginAlert ? loginAlert : errMessage} type='error' />}
       <h1>Sign In</h1>
       <form onSubmit={submitHandler} className='login-register-form'>

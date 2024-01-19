@@ -30,7 +30,7 @@ const SearchBar = () => {
 
 
   return (
-    <main className='search-bar-wrapper'>
+    <main className='container search-bar-wrapper'>
  
       <div className="form-group">
         <input type="text"  value={searchTerm} placeholder='Search products...' onChange={handleSearch} />

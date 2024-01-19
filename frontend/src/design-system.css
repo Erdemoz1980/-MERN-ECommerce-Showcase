@@ -10,6 +10,7 @@
   --clrLightOrange:#FFEEE2;
   --clrVeryDarkBlue:#1D2026;
   --clrDarkBlue:#2e4064;
+  --clrMediumBlue:#486194;
   --clrBlueGrey:#69707D;
   --clrLightGrey:rgb(182, 188, 200);
   --clrVeryLightGrey:#F6F8FD;
@@ -17,8 +18,9 @@
 
   /*Typography*/
   --ffMain:'Kumbh Sans', sans-serif;  
-  --widthMain:1110px;
-  --widthMedium:960px;
+  --widthDesktop:1440px;
+  --widthDesktopMedium:960px;
+  --widthTablet:730px;
   --widthMobile:640px;
 
   /*Transitions*/
@@ -54,6 +56,7 @@ small{
 }
 
 .container{
+  max-width: var(--widthDesktop);
   margin: auto;
 }
 
@@ -66,7 +69,7 @@ small{
   height: 100%;
   width: 100%;
   background: rgba(255,255,255, 0.6);
-  border: 2px solid var(--clrOrange);
+  border: 2px solid var(--clrLightGrey);
   border-radius: 10px;
 }
 
@@ -84,7 +87,7 @@ input, textarea, select{
   border:none;
   cursor: pointer;
   font-family: inherit;
-  border-radius: 10px;
+  border-radius: 5px;
   color:#fff;
   font-weight: 400;
   background: none;
@@ -96,6 +99,11 @@ input, textarea, select{
   font-size: 16px;
   line-height: 16px;
   background: var(--clrDarkBlue);
+}
+
+.btn-primary:hover,
+.btn-submit:hover {
+  background: var(--clrMediumBlue)
 }
 
 .btn-submit{
